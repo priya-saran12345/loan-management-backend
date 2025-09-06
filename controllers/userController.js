@@ -54,16 +54,13 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
     if (!email || !password) {
       return res.status(400).json({
         success: false,
         message: "Email and password are required",
       });
     }
-
     const user = await User.findOne({ email });
-
     if (!user) {
       return res.status(401).json({ 
         success: false, 
@@ -154,19 +151,16 @@ export const updateProfile = async (req, res) => {
   try {
     const { name, currentPassword, newPassword } = req.body;
     const user = await User.findById(req.userId);
-
     if (!user) {
       return res.status(404).json({ 
         success: false, 
         message: "User not found" 
       });
     }
-
     // Update name if provided
     if (name) {
       user.name = name;
     }
-
     // Update password if current password is provided
     if (currentPassword) {
       const isMatch = await bcrypt.compare(currentPassword, user.password);
@@ -176,19 +170,15 @@ export const updateProfile = async (req, res) => {
           message: "Current password is incorrect" 
         });
       }
-
       if (!newPassword) {
         return res.status(400).json({ 
           success: false, 
           message: "New password is required" 
         });
       }
-
       user.password = await bcrypt.hash(newPassword, 10);
     }
-
     await user.save();
-
     return res.json({
       success: true,
       message: "Profile updated successfully",

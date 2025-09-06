@@ -41,10 +41,8 @@ app.use(cors({
 // Database connection and server start
 (async () => {
     await connectDB();
-
     // Routes
     app.get("/api", (req, res) => res.send("Loan Management System API"));
-
     app.use("/api/user", userRouter);
     app.use("/api/employees", employeeRoutes);
     app.use("/api/income", incomeRoutes);

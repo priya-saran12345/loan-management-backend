@@ -2,7 +2,6 @@
 node_modules/
 npm-debug.log
 yarn-error.log
-
 # Environment files
 .env
 .env.local
@@ -21,15 +20,12 @@ build/
 .cache/
 .next/
 out/
-
 # Coverage reports
 coverage/
 *.lcov
-
 # OS specific files
 .DS_Store
 Thumbs.db
-
 # VSCode / IDE
 .vscode/
 .idea/
@@ -37,11 +33,9 @@ Thumbs.db
 *.ntvs*
 *.njsproj
 *.sln
-
 # MongoDB data (if using local database storage)
 data/db/
 dump/
-
 # Misc
 *.tgz
 *.zip
