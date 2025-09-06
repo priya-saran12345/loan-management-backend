@@ -25,7 +25,8 @@ const port = process.env.PORT || 4000;
 // Allowed origins
 const allowedOrigins = [
     "http://localhost:5173",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "https://loan-management-frontend.vercel.app"
 ];
 
 // Middleware
